@@ -7,11 +7,6 @@ os.system("cls || clear")
 from sqlalchemy import create_engine, Column, String, Float, Integer
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-def logo():
-    print("""
-    === FOLHA DE PAGAMENTO ===
-    """)
-
 #Banco de dados
 MEU_BANCO = create_engine("sqlite:///meubanco.db")
 
@@ -31,4 +26,17 @@ class Funcionario(Base):
     matricula = Column("matricula", Integer)
     senha = Column("senha", String)
 
-    def __init__(self, nome: str, matricula: int, se)
+    def __init__(self, nome: str, matricula: int, senha: str):
+        self.nome = nome
+        self.matricula = matricula
+        self.senha = senha
+
+#Criando tabela
+Base.metadata.create_all(bind=MEU_BANCO)
+
+os.system("cls || clear")
+
+def logo():
+    print("""
+    === FOLHA DE PAGAMENTO ===
+    """)
