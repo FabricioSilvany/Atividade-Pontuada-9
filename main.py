@@ -12,6 +12,23 @@ def logo():
     === FOLHA DE PAGAMENTO ===
     """)
 
+def INSS (salario):
+    if salario <= 1100:
+        salario_liquido = salario-(0.075 * salario)
+    #- Salário até R$ 1.100,00: 7,5%
+    elif salario > 1100 and salario <= 2203.48:
+        salario_liquido = salario-(0.09 * salario)
+    #- Salário de R$ 1.100,01 até R$ 2.203,48: 9%
+    elif salario > 2203.48 and salario <= 3305.22:
+        salario_liquido = salario-(0.12 * salario)
+    #- Salário de R$ 2.203,49 até R$ 3.305,22: 12%
+    elif salario > 3305.22 and salario <= 6433.57:
+        salario_liquido = salario-(0.14 * salario)
+    #- Salário de R$ 3.305,23 até R$ 6.433,57: 14%
+    =
+    #- O valor máximo de desconto do INSS é de R$ 854,36.
+    return salario_liquido
+
 #Banco de dados
 MEU_BANCO = create_engine("sqlite:///meubanco.db")
 
