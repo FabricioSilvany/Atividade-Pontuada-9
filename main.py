@@ -54,5 +54,5 @@ while True:
     if login_matricula != registro_matricula and login_senha != registro_senha:
         print("Login ou senha Incorretos. \n Tente novamente")
     else:
-        print("Login bem sucedido")
+        print("Login bem sucedido!")
         break
