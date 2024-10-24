@@ -30,22 +30,32 @@ class Funcionario(Base):
     nome = Column("nome", String)
     matricula = Column("matricula", Integer)
     senha = Column("senha", String)
+    salario = Column("salario", Float)
 
-    def __init__(self, nome: str, matricula: int, senha: str):
+    def __init__(self, nome: str, matricula: int, senha: str, salario:float):
         self.nome = nome
         self.matricula = matricula
         self.senha = senha
+        self.salario = salario
 
 #Criando tabela
 Base.metadata.create_all(bind=MEU_BANCO)
 
 print("== REGISTRO ==")
+registro_nome = input("Insira seu nome: ")
 registro_matricula = input("Insira sua matricula: ")
 registro_senha = input("Insira sua senha: ")
+registro_salario = float(input("Insira sua renda mensal: "))
+
+dados_funcionario = Funcionario(matricula = registro_matricula, senha = registro_senha, nome = registro_nome)
+
+session.add(dados_funcionario)
+session.commit()
+
+print("Dados salvos!")
 os.system("cls || clear")
 
 while True:
-
     print("\n== LOGIN ==")
     login_matricula = input("Insira sua matricula: ")
     login_senha = input("Insira sua senha: ")
